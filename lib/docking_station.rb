@@ -2,7 +2,7 @@ require_relative "bike"
 
 class DockingStation
 
-  attr_reader:bike
+  attr_accessor :bike
 
   def dock(bike)
     raise "Docking Station full" if @bike
@@ -13,5 +13,6 @@ class DockingStation
     raise 'No bikes available' unless @bike
     @bike
   end
+
 
 end
