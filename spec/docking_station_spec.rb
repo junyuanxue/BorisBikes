@@ -1,6 +1,7 @@
 require "docking_station"
 
 describe DockingStation do
+
     it { is_expected.to respond_to(:release_bike) }
     describe "release_bike" do
       it "releases bike" do
@@ -28,7 +29,7 @@ describe DockingStation do
       end
 
       it "raises an error" do
-        20.times { subject.dock(Bike.new) }
+        DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
         expect { subject.dock(Bike.new) }.to raise_error "The docking station is full"
       end
     end
