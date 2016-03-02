@@ -47,7 +47,7 @@ describe DockingStation do
 
     it "raises an error" do
       subject.capacity.times { subject.dock(Bike.new) }
-      expect { subject.dock(Bike.new) }.to raise_error "The docking station is full" 
+      expect { subject.dock(Bike.new) }.to raise_error "The docking station is full"
     end
   end
 
