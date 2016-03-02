@@ -12,7 +12,7 @@ class DockingStation
   end
 
   def release_bike
-    raise "No bikes available" if empty? 
+    raise "No bikes available" if empty? || @bikes[-1].broken?
     @bikes.pop
   end
 
