@@ -13,8 +13,17 @@ class Garage
     @broken_storage = sucky_bikes
   end
 
+  def load_fixed
+    fixed_array = fixed
+    @broken_storage.clear
+    fixed_array
+  end
+
   def fixed
-    @broken_storage.map { |bike| bike.fix }
+    @broken_storage.map { |bike|
+      bike.fix
+      bike
+    }
   end
 
 end

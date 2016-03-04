@@ -4,8 +4,10 @@ class Van
     sucky_bikes.each {|bike| garage.broken_storage << bike}
   end
 
-  def return_to_dock(fixed_bikes)
-    fixed_bikes
+  def return_to_dock(fixed_bikes, station)
+    fixed_bikes.each {|bike|
+      station.docked_bikes << bike
+      }
   end
 
 end
