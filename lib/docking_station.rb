@@ -10,7 +10,6 @@ class DockingStation
   def initialize(capacity=Default_capacity)
     @capacity = capacity
     @docked_bikes = []
-    #@broken_bikes = []
   end
 
   def release_bike
@@ -40,21 +39,7 @@ class DockingStation
     end
     broken_bikes
   end
-<<<<<<< HEAD
 
-  def unload_from_van(fixed_bikes)
-=======
-=begin
-  def van_to_dock(fixed_bikes)
->>>>>>> a4f134cbae99a0ce7c04315c6b5c6cc2cb9b512c
-    fixed_bikes.each do |bike|
-      if bike.working
-        @docked_bikes << bike
-        @broken_bikes.delete bike
-      end
-    end
-  end
-=end
   def dock_status
     @docked_bikes == 0 ? "empty" : "#{@docked_bikes.length} bikes"
   end
