@@ -1,5 +1,7 @@
 module BikeContainer
+
   DEFAULT_CAPACITY = 20
+
   def initialize(capacity=DEFAULT_CAPACITY)
     @capacity = capacity
     @bikes = []
@@ -18,7 +20,11 @@ module BikeContainer
     @bikes.clear
   end
 
+  def full?
+    @bikes.length == @capacity ? true : false
+  end
 
-
-
+  def empty?
+    @bikes.length == 0
+  end
 end

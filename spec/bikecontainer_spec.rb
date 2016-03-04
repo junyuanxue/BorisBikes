@@ -2,14 +2,17 @@ require 'bikecontainer'
 require 'docking_station'
 
 shared_examples_for "a bikecontainer" do
-  let(:bikecontainer) { described_class.new}
-  #it { is_expected.to respond_to(:move).with(1).argument}
-  #it { is_expected.to respond_to(:bikes)}
-  #it { is_expected.to respond_to(:capacity)}
+  let(:bikecontainer) { described_class.new }
 
-  context "have a capacity" do
-    it "capacity is 20" do
-      expect(bikecontainer.capacity).to eq(20)
+  it "has a default capacity when initialized" do
+    expect(bikecontainer.capacity).to eq BikeContainer::DEFAULT_CAPACITY
+  end
+
+  describe "#capacity" do
+    it "can be overridden on initialize" do
+      random_capacity = Random.rand(100)
+      subject = described_class.new random_capacity
+      expect(subject.capacity).to eq random_capacity
     end
   end
 
@@ -23,7 +26,7 @@ shared_examples_for "a bikecontainer" do
       end
       it "bikes are removed from origin" do
         subject.move(van)
-        expect(subject.bikes).to eq([])
+        expect(subject.bikes).to be_empty
       end
       it "only moves broken bikes when move_only_broken is true" do
         subject.move(van, true)

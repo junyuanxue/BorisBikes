@@ -3,17 +3,7 @@ require_relative 'bikecontainer'
 class Van
 
   include BikeContainer
-=begin
-  def collect_from_dock(sucky_bikes, garage)
-    sucky_bikes.each {|bike| garage.broken_storage << bike}
-  end
 
-  def return_to_dock(fixed_bikes, station)
-    fixed_bikes.each {|bike|
-      station.docked_bikes << bike
-      }
-  end
-=end
 end
 
 
