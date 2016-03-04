@@ -40,7 +40,7 @@ class DockingStation
     @broken_bikes
   end
 
-  def van_to_dock(fixed_bikes)
+  def unload_from_van(fixed_bikes)
     fixed_bikes.each do |bike|
       if bike.working
         @docked_bikes << bike

@@ -2,10 +2,10 @@ require 'van'
 
 describe Van do
   let(:garage) {double :garage, :broken_storage => []}
-  describe "#collect_from_dock" do
+  describe "#move_to_garage" do
     it 'should move broken bikes to the garage' do
       sucky_bikes = [1,2,3]
-      subject.collect_from_dock(sucky_bikes, garage)
+      subject.move_to_garage(sucky_bikes, garage)
       expect(garage.broken_storage).to eq sucky_bikes
     end
   end
