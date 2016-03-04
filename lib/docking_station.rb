@@ -3,20 +3,21 @@ require_relative 'garage'
 require_relative 'van'
 
 class DockingStation
+  include BikeContainer
   Default_capacity = 20
   attr_accessor :Default_capacity, :capacity, :docked_bikes, :broken_bikes
 
-
-  def initialize(capacity=Default_capacity)
-    @capacity = capacity
-    @docked_bikes = []
-  end
+  #def initialize(capacity=Default_capacity)
+    #@capacity = capacity
+    #@docked_bikes = []
+    #@broken_bikes = []
+  #end
 
   def release_bike
-    if empty? || @docked_bikes.last.working == false
+    if empty? || @bikes.last.working == false
       raise "no bikes available"
     else
-      @docked_bikes.pop
+      @bikes.pop
     end
   end
 
@@ -24,38 +25,38 @@ class DockingStation
     if full?
       raise 'station is full'
     else
-      @docked_bikes << bike_name
+      @bikes << bike_name
       bike_name
     end
   end
 
   def bike_to_van
     broken_bikes = []
-    @docked_bikes.each do |bike|
+    @bikes.each do |bike|
       if !bike.working
         broken_bikes << bike
-        @docked_bikes.delete bike
+        @bikes.delete bike
       end
     end
     broken_bikes
   end
 
   def dock_status
-    @docked_bikes == 0 ? "empty" : "#{@docked_bikes.length} bikes"
+    @bikes == 0 ? "empty" : "#{@bikes.length} bikes"
   end
 
   def bike
-    @docked_bikes.last
+    @bikes.last
   end
 
 
   private
 
   def full?
-    @docked_bikes.length == @capacity ? true : false
+    @bikes.length == @capacity ? true : false
   end
 
   def empty?
-    @docked_bikes.length == 0
+    @bikes.length == 0
   end
 end

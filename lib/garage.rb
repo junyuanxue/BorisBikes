@@ -2,25 +2,26 @@ require_relative 'bike'
 require_relative 'van'
 
 class Garage
+  include BikeContainer
 
-  attr_reader :broken_storage
+  #attr_reader :bikes
 
-  def initialize
-    @broken_storage = []
-  end
+  #def initialize
+  #  @broken_storage = []
+  #end
 
   def unload(sucky_bikes)
-    @broken_storage = sucky_bikes
+    @bikes = sucky_bikes
   end
 
   def load_fixed
     fixed_array = fixed
-    @broken_storage.clear
+    @bikes.clear
     fixed_array
   end
 
   def fixed
-    @broken_storage.map { |bike|
+    @bikes.map { |bike|
       bike.fix
       bike
     }

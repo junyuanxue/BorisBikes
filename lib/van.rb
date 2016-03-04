@@ -1,6 +1,7 @@
 class Van
 
-  def move_to_garage(sucky_bikes, garage)
+  include BikeContainer
+  def collect_from_dock(sucky_bikes, garage)
     sucky_bikes.each {|bike| garage.broken_storage << bike}
   end
 
