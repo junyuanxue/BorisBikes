@@ -7,9 +7,13 @@ module BikeContainer
   attr_accessor :bikes
   attr_reader :capacity
 
-  def move(destination)
+  def move(destination, move_only_broken=false)
     @bikes.each{|bike|
-      destination.bikes << bike
+      if move_only_broken == true
+        destination.bikes << bike if !bike.working?
+      else
+        destination.bikes << bike
+      end
     }
     @bikes.clear
   end

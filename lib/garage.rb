@@ -10,6 +10,7 @@ class Garage
   #  @broken_storage = []
   #end
 
+=begin
   def unload(sucky_bikes)
     @bikes = sucky_bikes
   end
@@ -19,6 +20,7 @@ class Garage
     @bikes.clear
     fixed_array
   end
+=end
 
   def fixed
     @bikes.map { |bike|

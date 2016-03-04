@@ -1,6 +1,9 @@
+require_relative 'bikecontainer'
+
 class Van
 
   include BikeContainer
+=begin
   def collect_from_dock(sucky_bikes, garage)
     sucky_bikes.each {|bike| garage.broken_storage << bike}
   end
@@ -10,7 +13,7 @@ class Van
       station.docked_bikes << bike
       }
   end
-
+=end
 end
 
 

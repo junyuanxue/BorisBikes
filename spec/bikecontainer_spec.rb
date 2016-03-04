@@ -25,7 +25,11 @@ shared_examples_for "a bikecontainer" do
         subject.move(van)
         expect(subject.bikes).to eq([])
       end
-           
+      it "only moves broken bikes when move_only_broken is true" do
+        subject.move(van, true)
+        expect(van.bikes).to all be_not_working
+      end
+
     end
   end
 end

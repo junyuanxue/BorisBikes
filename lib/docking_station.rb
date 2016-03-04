@@ -4,8 +4,8 @@ require_relative 'van'
 
 class DockingStation
   include BikeContainer
-  Default_capacity = 20
-  attr_accessor :Default_capacity, :capacity, :docked_bikes, :broken_bikes
+  #Default_capacity = 20
+  #attr_accessor :Default_capacity, :capacity, :docked_bikes, :broken_bikes
 
   #def initialize(capacity=Default_capacity)
     #@capacity = capacity
@@ -28,17 +28,6 @@ class DockingStation
       @bikes << bike_name
       bike_name
     end
-  end
-
-  def bike_to_van
-    broken_bikes = []
-    @bikes.each do |bike|
-      if !bike.working
-        broken_bikes << bike
-        @bikes.delete bike
-      end
-    end
-    broken_bikes
   end
 
   def dock_status

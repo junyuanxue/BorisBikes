@@ -1,5 +1,5 @@
 require 'van'
-
+=begin
 describe Van do
   let(:garage) {double :garage, :broken_storage => []}
   let(:garage_full){double :garage_full, :fixed => [1,2,3]}
@@ -22,3 +22,4 @@ describe Van do
 
 
 end
+=end
